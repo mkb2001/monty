@@ -9,6 +9,12 @@
 #include <fcntl.h>
 #include <string.h>
 #include <ctype.h>
+#include <limits.h>
+#include <strings.h>
+
+extern FILE *file;
+
+extern int FIFO;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -40,9 +46,18 @@ typedef struct instruction_s
     void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void f_push(stack_t **head, unsigned int number);
-void f_pall(stack_t **head, unsigned int number);
-int execute(char *cont, stack_t **head, unsigned int count, FILE *file);
+void (*ref_func(char *opcode))(stack_t **, unsigned int);
+char *get_opcode(char *inst_line);
+void push(stack_t **stack, unsigned int line_number);
+int lineReader(char *line, stack_t *stack, int line_number);
+char *get_opcode(char *inst_line);
+void enqueue(stack_t **new_block, stack_t **stack);
+void push_to_stack(stack_t **new_block, stack_t **stack);
+void free_stack_t(stack_t **stack);
 
+int stoi(char *str);
+int is_spaces(char *inst_line);
+int is_empty(char *inst_line);
+int is_newline(char *inst_line);
 
 #endif 
