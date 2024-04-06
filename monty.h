@@ -49,7 +49,7 @@ typedef struct instruction_s
 void (*ref_func(char *opcode))(stack_t **, unsigned int);
 char *get_opcode(char *inst_line);
 void push(stack_t **stack, unsigned int line_number);
-int lineReader(char *line, stack_t *stack, int line_number);
+int lineReader(stack_t **stack, char *line, int line_number);
 void enqueue(stack_t **new_block, stack_t **stack);
 void push_to_stack(stack_t **new_block, stack_t **stack);
 void free_stack_t(stack_t **stack);

@@ -27,7 +27,7 @@ int main(int ac, char *argv[])
 
     while (fgets(line, sizeof(line), file) != NULL)
     {
-        lineReader(line, stack, line_number);
+        lineReader(&stack, line, line_number);
         ++line_number;
     }
     fclose(file);
@@ -43,7 +43,7 @@ int main(int ac, char *argv[])
  *
  * Return: 1 if successfully interpreted, 0 if instruction not found
  */
-int lineReader(char *line, stack_t *stack, int line_number)
+int lineReader(stack_t **stack, char *line, int line_number)
 {
     char *opcode;
 
@@ -64,13 +64,13 @@ int lineReader(char *line, stack_t *stack, int line_number)
     if (ref_func(opcode) == NULL)
     {
         dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n", line_number, opcode);
-        free_stack_t(&stack);
+        free_stack_t((stack_t **) &stack);
         fclose(file);
         /* free(line); */
         exit(EXIT_FAILURE);
     }
     else
-        ref_func(opcode)(&stack, line_number);
+        ref_func(opcode)((stack_t **) &stack, line_number);
     return (0);
 }
 /**
