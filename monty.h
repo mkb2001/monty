@@ -63,4 +63,5 @@ void print_errmsg_argfail(void);
 void print_errmsg_openfail(char **pString);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
 #endif

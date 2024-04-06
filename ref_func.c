@@ -16,6 +16,7 @@ void (*ref_func(char *opcode))(stack_t **, unsigned int)
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
+		{"swap", swap},
 
 		{NULL, NULL}};
 	size_t i = 0;
