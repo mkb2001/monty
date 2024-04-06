@@ -68,3 +68,62 @@ int is_newline(char *inst_line)
 			return (1);
 	return (0);
 }
+
+/**
+* push_to_stack - pushes a new block up to a stack
+* @new_block: the new block to push to the top of the stack
+* @stack: the stack to push the new block to
+*
+* Return: nothing
+*/
+
+void push_to_stack(stack_t **new_block, stack_t **stack)
+{
+    (*new_block)->next = *stack;
+    (*stack)->prev = *new_block;
+    *stack = *new_block;
+}
+
+/**
+* enqueue - adds a new block to a queue
+* @new_block: the new block to push to the top of the stack
+* @stack: the stack to push the new block to
+*
+* Return: nothing
+*/
+
+void enqueue(stack_t **new_block, stack_t **stack)
+{
+    stack_t *crawler = *stack;
+
+    while (crawler->next != NULL)
+        crawler = crawler->next;
+    crawler->next = *new_block;
+    (*new_block)->prev = crawler;
+}
+/**
+* stoi - converts a string representation of an integer to an interger
+* @str: the string to convert
+*
+* Return: -1 on error, the integer on success
+*/
+
+int stoi(char *str)
+{
+    int i = 0;
+
+    for (i = 0; str[i] != '\0'; i++)
+    {
+        if (i == 0 && str[i] == '-')
+        {
+            if (str[i + 1] == '\0')
+                return (0);
+            continue;
+        }
+        else if (str[i] >= '0' && str[i] <= '9')
+            continue;
+        else
+            return (0);
+    }
+    return (atoi(str));
+}
