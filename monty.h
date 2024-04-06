@@ -1,18 +1,14 @@
-//
-// Created by mkb on 3/28/24.
-//
+
 
 #ifndef MONTY_MONTY_H
 #define MONTY_MONTY_H
 #include <stdio.h>
-#include <unistd.h>
 #include <stdlib.h>
-#include <fcntl.h>
 #include <sys/types.h>
+#include <unistd.h>
+#include <fcntl.h>
 #include <string.h>
 #include <ctype.h>
-#include <stdarg.h>
-#include "monty.h"
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -49,4 +45,4 @@ void f_pall(stack_t **head, unsigned int number);
 int execute(char *cont, stack_t **head, unsigned int count, FILE *file);
 
 
-#endif //MONTY_MONTY_H
+#endif 

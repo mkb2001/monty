@@ -29,7 +29,6 @@ int main(int argc, char *argv[])
         if (read_line > 0)
         {
             execute(cont, &stack, counter, file);
-//            printf("I was started");
         }
         free(cont);
     }
