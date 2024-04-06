@@ -3,6 +3,8 @@
 FILE *file;
 int FIFO = 0;
 
+void print_errmsg_opcodefail(stack_t **pS, int number, char *opcode);
+
 int main(int ac, char *argv[])
 {
     char line[1024];
@@ -35,44 +37,10 @@ int main(int ac, char *argv[])
     exit(EXIT_SUCCESS);
 }
 
-/**
- * lineReader - interpretes a line to determine its operation
- * @stack: the stack data structure
- * @line: the instruction line to interprete
- * @line_number: the number of the instruction in the file
- *
- * Return: 1 if successfully interpreted, 0 if instruction not found
- */
-int lineReader(stack_t **stack, char *line, int line_number)
-{
-    char *opcode;
 
-    if (is_empty(line) != 0)
-        return (0);
 
-    opcode = get_opcode(line);
 
-    /* Handle the nop opcode */
-    if (strcmp(opcode, "nop") == 0)
-        return (0);
 
-    /* Handle comment */
-    if (strncmp(opcode, "#", 1) == 0)
-        return (0);
-
-    /* Validate the opcode and call function handler */
-    if (ref_func(opcode) == NULL)
-    {
-        dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n", line_number, opcode);
-        free_stack_t((stack_t **) &stack);
-        fclose(file);
-        /* free(line); */
-        exit(EXIT_FAILURE);
-    }
-    else
-        ref_func(opcode)((stack_t **) &stack, line_number);
-    return (0);
-}
 /**
  * get_opcode - gets the opcode from a line and formats it properly
  * @inst_line: the instruction line

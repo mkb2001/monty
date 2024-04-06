@@ -54,7 +54,7 @@ void enqueue(stack_t **new_block, stack_t **stack);
 void push_to_stack(stack_t **new_block, stack_t **stack);
 void free_stack_t(stack_t **stack);
 void pall(stack_t **stack, unsigned int line_number);
-
+void print_errmsg_opcodefail(stack_t **stack, int line_number, char *opcode);
 int stoi(char *str);
 int is_spaces(char *inst_line);
 int is_empty(char *inst_line);
