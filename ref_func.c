@@ -3,20 +3,20 @@
 #include "monty.h"
 
 /**
- * get_func - get the function of a valid opcode
- * @opcode: the opcode to validate and get a function for
- *
- * Return: pointer to the function or NULL
- */
+* get_func - get the function of a valid opcode
+* @opcode: the opcode to validate and get a function for
+*
+* Return: pointer to the function or NULL
+*/
 
 void (*ref_func(char *opcode))(stack_t **, unsigned int)
 {
 	instruction_t op_func[] = {
 		{"push", push},
-        {"pall", pall},
+		{"pall", pall},
 
 
-        {NULL, NULL}};
+		{NULL, NULL}};
 	size_t i = 0;
 	char *valid_opcode = op_func[i].opcode;
 
