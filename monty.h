@@ -50,10 +50,10 @@ void (*ref_func(char *opcode))(stack_t **, unsigned int);
 char *get_opcode(char *inst_line);
 void push(stack_t **stack, unsigned int line_number);
 int lineReader(char *line, stack_t *stack, int line_number);
-char *get_opcode(char *inst_line);
 void enqueue(stack_t **new_block, stack_t **stack);
 void push_to_stack(stack_t **new_block, stack_t **stack);
 void free_stack_t(stack_t **stack);
+void pall(stack_t **stack, unsigned int line_number);
 
 int stoi(char *str);
 int is_spaces(char *inst_line);

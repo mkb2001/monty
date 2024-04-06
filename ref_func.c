@@ -13,8 +13,10 @@ void (*ref_func(char *opcode))(stack_t **, unsigned int)
 {
 	instruction_t op_func[] = {
 		{"push", push},
-	
-		{NULL, NULL}};
+        {"pall", pall},
+
+
+        {NULL, NULL}};
 	size_t i = 0;
 	char *valid_opcode = op_func[i].opcode;
 
