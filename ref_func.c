@@ -17,7 +17,7 @@ void (*ref_func(char *opcode))(stack_t **, unsigned int)
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
-
+		{"add", add},
 		{NULL, NULL}};
 	size_t i = 0;
 	char *valid_opcode = op_func[i].opcode;
