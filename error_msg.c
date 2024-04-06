@@ -16,3 +16,26 @@ void print_errmsg_opcodefail(stack_t **stack, int line_number, char *opcode)
     /* free(line); */
     exit(EXIT_FAILURE);
 }
+/**
+ * print_errmsg_argfail - prints an error message for wrong arguments
+ *
+ * Return: nothing
+ */
+
+void print_errmsg_argfail(void)
+{
+    fprintf(stderr, "USAGE: monty file\n");
+    exit(EXIT_FAILURE);
+}
+
+/**
+ * print_errmsg_openfail - prints an error message for a failed open operation
+ * @argv: list of arguments passed to main
+ *
+ * Return: nothing
+ */
+void print_errmsg_openfail(char *argv[])
+{
+    fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+    exit(EXIT_FAILURE);
+}

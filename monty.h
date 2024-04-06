@@ -59,5 +59,7 @@ int stoi(char *str);
 int is_spaces(char *inst_line);
 int is_empty(char *inst_line);
 int is_newline(char *inst_line);
+void print_errmsg_argfail(void);
+void print_errmsg_openfail(char **pString);
 
 #endif 
