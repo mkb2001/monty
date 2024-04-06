@@ -62,5 +62,5 @@ int is_newline(char *inst_line);
 void print_errmsg_argfail(void);
 void print_errmsg_openfail(char **pString);
 void pint(stack_t **stack, unsigned int line_number);
-
+void pop(stack_t **stack, unsigned int line_number);
 #endif
